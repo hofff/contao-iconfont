@@ -1,0 +1,9 @@
+/*
+!/.gitignore
+!/.gitattributes
+!/contao-module/
+!/dev/
+!/src/
+!/CHANGELOG.md
+!/README.md
+!/composer.json
