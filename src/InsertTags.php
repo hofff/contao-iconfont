@@ -26,7 +26,7 @@ class InsertTags
 		} elseif ($split[0] == 'icon-fa-ban' && isset($split[1])) {
 			return '<span class="fa-stack fa-lg"><i class="fa ' . $split[1] . ' fa-stack-1x" aria-hidden="true"></i><i class="fa fa-ban fa-stack-2x text-danger" aria-hidden="true"></i></span>';
 		} elseif ($split[0] == 'icon' && isset($split[1])) {
-			return '<i class="icon icon-' . $split[1] . '" aria-hidden="true"></i>';
+			return '<i class="icon ' . $split[1] . '" aria-hidden="true"></i>';
 		}
 
 		return false;
