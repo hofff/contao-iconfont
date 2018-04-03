@@ -1,6 +1,6 @@
-[![Latest Version on Packagist](http://img.shields.io/packagist/v/hofff/contao-my-module.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
-[![Installations via composer per month](http://img.shields.io/packagist/dm/hofff/contao-my-module.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
-[![Installations via composer total](http://img.shields.io/packagist/dt/hofff/contao-my-module.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/hofff/contao-iconfont.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/hofff/contao-iconfont.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
+[![Installations via composer total](http://img.shields.io/packagist/dt/hofff/contao-iconfont.svg?style=flat)](https://packagist.org/packages/hofff/contao-iconfont)
 
 # Contao Extension: hofff.com - Iconfont
 
