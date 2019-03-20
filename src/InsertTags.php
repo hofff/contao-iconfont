@@ -37,24 +37,44 @@ class InsertTags
     elseif ($split[0] == 'icon-fab-fw' && isset($split[1])) {
       return '<i class="fab fa-' . $split[1] . ' fa-fw" aria-hidden="true"></i>'; }
 
-    // Icons mit Rahmen im Textfluss (links)
+    // Icons im Textfluss (links)
     elseif ($split[0] == 'icon-fas-left' && isset($split[1])) {
-      return '<i class="fas fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+      return '<i class="fas fa-' . $split[1] . ' fa-2x fa-pull-left" aria-hidden="true"></i>'; }
     elseif ($split[0] == 'icon-far-left' && isset($split[1])) {
-      return '<i class="far fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+      return '<i class="far fa-' . $split[1] . ' fa-2x fa-pull-left" aria-hidden="true"></i>'; }
     elseif ($split[0] == 'icon-fal-left' && isset($split[1])) {
-      return '<i class="fal fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+      return '<i class="fal fa-' . $split[1] . ' fa-2x fa-pull-left" aria-hidden="true"></i>'; }
     elseif ($split[0] == 'icon-fab-left' && isset($split[1])) {
+      return '<i class="fab fa-' . $split[1] . ' fa-2x fa-pull-left" aria-hidden="true"></i>'; }
+
+    // Icons im Textfluss (rechts)
+    elseif ($split[0] == 'icon-fas-right' && isset($split[1])) {
+      return '<i class="fas fa-' . $split[1] . ' fa-2x fa-pull-right" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-far-right' && isset($split[1])) {
+      return '<i class="far fa-' . $split[1] . ' fa-2x fa-pull-right" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fal-right' && isset($split[1])) {
+      return '<i class="fal fa-' . $split[1] . ' fa-2x fa-pull-right" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fab-right' && isset($split[1])) {
+      return '<i class="fab fa-' . $split[1] . ' fa-2x fa-pull-right" aria-hidden="true"></i>'; }
+
+    // Icons mit Rahmen im Textfluss (links)
+    elseif ($split[0] == 'icon-fas-border-left' && isset($split[1])) {
+      return '<i class="fas fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-far-border-left' && isset($split[1])) {
+      return '<i class="far fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fal-border-left' && isset($split[1])) {
+      return '<i class="fal fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fab-border-left' && isset($split[1])) {
       return '<i class="fab fa-' . $split[1] . ' fa-2x fa-pull-left fa-border" aria-hidden="true"></i>'; }
 
     // Icons mit Rahmen im Textfluss (rechts)
-    elseif ($split[0] == 'icon-fas-right' && isset($split[1])) {
+    elseif ($split[0] == 'icon-fas-border-right' && isset($split[1])) {
       return '<i class="fas fa-' . $split[1] . ' fa-2x fa-pull-right fa-border" aria-hidden="true"></i>'; }
-    elseif ($split[0] == 'icon-far-right' && isset($split[1])) {
+    elseif ($split[0] == 'icon-far-border-right' && isset($split[1])) {
       return '<i class="far fa-' . $split[1] . ' fa-2x fa-pull-right fa-border" aria-hidden="true"></i>'; }
-    elseif ($split[0] == 'icon-fal-right' && isset($split[1])) {
+    elseif ($split[0] == 'icon-fal-border-right' && isset($split[1])) {
       return '<i class="fal fa-' . $split[1] . ' fa-2x fa-pull-right fa-border" aria-hidden="true"></i>'; }
-    elseif ($split[0] == 'icon-fab-right' && isset($split[1])) {
+    elseif ($split[0] == 'icon-fab-border-right' && isset($split[1])) {
       return '<i class="fab fa-' . $split[1] . ' fa-2x fa-pull-right fa-border" aria-hidden="true"></i>'; }
 
     // Icons drehend
