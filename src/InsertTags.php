@@ -147,6 +147,16 @@ class InsertTags
     elseif ($split[0] == 'icon-fab-flip-vertical' && isset($split[1])) {
       return '<i class="fab fa-' . $split[1] . ' fa-flip-vertical" aria-hidden="true"></i>'; }
 
+    // Icons vertikal & horizontal spiegeln
+    elseif ($split[0] == 'icon-fas-flip-both' && isset($split[1])) {
+      return '<i class="fas fa-' . $split[1] . ' fa-flip-both" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-far-flip-both' && isset($split[1])) {
+      return '<i class="far fa-' . $split[1] . ' fa-flip-both" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fal-flip-both' && isset($split[1])) {
+      return '<i class="fal fa-' . $split[1] . ' fa-flip-both" aria-hidden="true"></i>'; }
+    elseif ($split[0] == 'icon-fab-flip-both' && isset($split[1])) {
+      return '<i class="fab fa-' . $split[1] . ' fa-flip-both" aria-hidden="true"></i>'; }
+
     // Icons mit quadratischem Hintergrund
     elseif ($split[0] == 'icon-fas-square' && isset($split[1])) {
       return '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true"></i><i class="fas fa-' . $split[1] . ' fa-stack-1x fa-inverse" aria-hidden="true"></i></span>'; }
