@@ -9,61 +9,220 @@ This extension provides some insert tags to insert FontAwesome and individual ic
 
 ## Features
 
-###insert all FontAwesome icons (you have to include components/font-awesome)
-		
-**``{{icon-fa::fa-icon-name}}``**
+### insert all FontAwesome icons
 
-```
-<i class="fa fa-icon-name" aria-hidden="true"></i>
+#### Basic Use
+
+see https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
+
+**``{{icon-fa*::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name" aria-hidden="true"></i>
 ```
 
-**``{{icon-fa-square-o::fa-icon-name}}``**
+#### Fixed Width Icons
 
+see https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons
+
+**``{{icon-fa*-fw::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-fw" aria-hidden="true"></i>
 ```
-<span class="fa-stack fa-lg">
-	<i class="fa fa-square-o fa-stack-2x" aria-hidden="true"></i>
-	<i class="fa fa-icon-name fa-stack-1x" aria-hidden="true"></i>
+
+#### Bordered + Pulled Icons
+
+see https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons
+
+**wrap text around an icon - left**
+
+**``{{icon-fa*-left::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-2x fa-pull-left" aria-hidden="true"></i>
+```
+
+**wrap text around an icon - right**
+
+**``{{icon-fa*-right::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-2x fa-pull-right" aria-hidden="true"></i>
+```
+
+**wrap text around an icon with border - left**
+
+**``{{icon-fa*-border-left::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-2x fa-pull-left fa-border" aria-hidden="true"></i>
+```
+
+**wrap text around an icon with border - right**
+
+**``{{icon-fa*-border-right::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-2x fa-pull-right fa-border" aria-hidden="true"></i>
+```
+
+#### Animating Icons
+
+see https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons
+
+**rotate icon**
+
+**``{{icon-fa*-spin::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-spin" aria-hidden="true"></i>
+```
+
+**pulse icon**
+
+**``{{icon-fa*-pulse::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-pulse" aria-hidden="true"></i>
+```
+
+#### Rotating Icons
+
+see https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons
+
+**turn 90° clockwise**
+
+**``{{icon-fa*-rotate-90::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-rotate-90" aria-hidden="true"></i>
+```
+
+**turn 180° clockwise**
+
+**``{{icon-fa*-rotate-180::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-rotate-180" aria-hidden="true"></i>
+```
+
+**turn 270° clockwise**
+
+**``{{icon-fa*-rotate-270::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-rotate-270" aria-hidden="true"></i>
+```
+
+**mirror icon horizontally**
+
+**``{{icon-fa*-flip-horizontal::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-flip-horizontal" aria-hidden="true"></i>
+```
+
+**mirror icon vertically**
+
+**``{{icon-fa*-flip-vertical::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-flip-vertical" aria-hidden="true"></i>
+```
+
+**mirror icon vertically and horizontally (requires 5.7.0 or greater)**
+
+**``{{icon-fa*-flip-both::icon-name}}``** [^FontAwesome-Style]
+
+
+```php+HTML
+<i class="fa* fa-icon-name fa-flip-both" aria-hidden="true"></i>
+```
+
+#### Stacked Icons
+
+see https://fontawesome.com/how-to-use/on-the-web/styling/stacking-icons
+
+**icon with square background**
+
+**``{{icon-fa*-square::icon-name}}``**
+
+```php+HTML
+<span class="fa-stack">
+	<i class="fas fa-square fa-stack-2x" aria-hidden="true"></i>
+	<i class="fa* fa-icon-name fa-stack-1x fa-inverse" aria-hidden="true"></i>
 </span>
 ```
 
-**``{{icon-fa-circle::fa-icon-name}}``**
+**icon with square background - only border**
 
-```
-<span class="fa-stack fa-lg">
-	<i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-	<i class="fa fa-icon-name fa-stack-1x fa-inverse" aria-hidden="true"></i>
+**``{{icon-fa*-square-border::icon-name}}``**
+
+```php+HTML
+<span class="fa-stack">
+	<i class="far fa-square fa-stack-2x" aria-hidden="true"></i>
+	<i class="fa* fa-icon-name fa-stack-1x" aria-hidden="true"></i>
 </span>
 ```
 
-**``{{icon-fa-square::fa-icon-name}}``**
+**icon with circle background**
 
-```
-<span class="fa-stack fa-lg">
-	<i class="fa fa-square-o fa-stack-2x" aria-hidden="true"></i>
-	<i class="fa fa-icon-name fa-stack-1x" aria-hidden="true"></i>
+**``{{icon-fa*-circle::icon-name}}``**
+
+```php+HTML
+<span class="fa-stack">
+	<i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i>
+	<i class="fa* fa-icon-name fa-stack-1x fa-inverse" aria-hidden="true"></i>
 </span>
 ```
 
-**``{{icon-fa-ban::fa-icon-name}}``**
+**icon with circle background - only border**
 
-```
-<span class="fa-stack fa-lg">
-	<i class="fa fa-icon-name fa-stack-1x" aria-hidden="true"></i>
-	<i class="fa fa-ban fa-stack-2x text-danger" aria-hidden="true"></i>
+**``{{icon-fa*-circle-border::icon-name}}``**
+
+```php+HTML
+<span class="fa-stack">
+	<i class="far fa-circle fa-stack-2x" aria-hidden="true"></i>
+	<i class="fa* fa-icon-name fa-stack-1x" aria-hidden="true"></i>
 </span>
 ```
 
-###insert your own icon font (you have to provide some css by your own)
+**icon with prohibition sign**
 
-**``{{icon::<<icon name>>}}``**
+**``{{icon-fa-ban::icon-name}}``**
 
+```php+HTML
+<span class="fa-stack">
+	<i class="fa* fa-icon-name fa-stack-1x" aria-hidden="true"></i>
+	<i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i>
+</span>
 ```
-<i class="icon icon-' . $arrSplit[1] . '" aria-hidden="true"></i>
+
+### insert your own icon font (you have to provide some css by your own)
+
+**``{{icon::your-icon-name}}``**
+
+```php+HTML
+<i class="icon icon-your-icon-name" aria-hidden="true"></i>
 ```
 
-##CSS Example for your own icon font
+## CSS Example for your own icon font
 
-```
+```php+HTML
 /* Include your icon font files */
 
 @font-face {
@@ -84,7 +243,6 @@ This extension provides some insert tags to insert FontAwesome and individual ic
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -109,12 +267,12 @@ If you prefer to install it manually, download the latest release here: https://
 
 ## Compatibility
 
-- min. Contao version: >= 3.2.0
-- max. Contao version: <  3.6.0
-
+- min. Contao version: >= 3.5.0
+- max. Contao version: 4.*
 
 ## Dependency
 
-This extension is dependent on the following extensions:
+- You have to include FontAwesome sources see https://fontawesome.com/start
 
-- [components/font-awesome](https://packagist.org/packages/components/font-awesome)
+[^FontAwesome-Style]: The `*` should be replaced with the FontAwesome-Style you want: fas=[Solid](https://fontawesome.com/icons?s=solid), far=[Regular](https://fontawesome.com/icons?s=regular), fal=[Light](https://fontawesome.com/icons?s=light) or fab=[Brands](https://fontawesome.com/icons?s=brands)
+
