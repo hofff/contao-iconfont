@@ -8,7 +8,7 @@
 		"FontAwesome"
 	],
 	"type": "contao-module",
-	"license": "LGPL-3.0-later",
+	"license": "LGPL-3.0-or-later",
 	"homepage": "https://www.hofff.com",
 	"authors": [
 		{
