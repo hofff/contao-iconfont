@@ -1,44 +1,49 @@
 {
-	"name": "hofff/contao-iconfont",
-	"description": "Insert tag for Contao Open Source CMS to insert FontAwesome icons and individual icons",
-	"keywords": [
-		"contao",
-		"icon",
-		"iconfont",
-		"FontAwesome"
-	],
-	"type": "contao-module",
-	"license": "LGPL-3.0-or-later",
-	"homepage": "https://www.hofff.com",
-	"authors": [
-		{
-			"name": "Nicky Hoff",
-			"homepage": "https://www.hofff.com",
-			"email": "nick@hofff.com",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": "^5.6 || ^7.0",
-		"contao/core-bundle" : "^3.5 || ^4.4",
-		"contao-community-alliance/composer-plugin" : "^2.4 || ^3.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"Hofff\\Contao\\IconFont\\": "src/"
-		}
-	},
-	"extra": {
-		"contao": {
-			"sources": {
-				"contao-module": "system/modules/hofff_iconfont"
-			}
-		},
-		"branch-alias": {
-			"dev-develop": "2.2.x-dev",
-			"dev-master": "2.1.x-dev"
-		}
-	},
-	"prefer-stable": true,
-	"minimum-stability": "dev"
+  "name": "hofff/contao-iconfont",
+  "description": "Insert tag for Contao Open Source CMS to insert FontAwesome icons and individual icons",
+  "keywords": [
+    "contao",
+    "icon",
+    "iconfont",
+    "FontAwesome"
+  ],
+  "type": "contao-bundle",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://www.hofff.com",
+  "authors": [
+    {
+      "name": "Nicky Hoff",
+      "homepage": "https://www.hofff.com",
+      "email": "nick@hofff.com",
+      "role": "Developer"
+    },
+    {
+      "name": "David Molineus",
+      "email": "david@hofff.com",
+      "homepage": "https://www.hofff.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "contao/core-bundle": "^4.9",
+    "symfony/config": "^4.4 || ^5.0",
+    "symfony/dependency-injection": "^4.4 || ^5.0",
+    "symfony/http-kernel": "^4.4 || ^5.0"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hofff\\Contao\\IconFont\\": "src/"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "Hofff\\Contao\\IconFont\\ContaoManager\\Plugin",
+    "branch-alias": {
+      "dev-develop": "3.0.x-dev",
+      "dev-master": "2.1.x-dev"
+    }
+  }
 }

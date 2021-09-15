@@ -267,8 +267,8 @@ If you prefer to install it manually, download the latest release here: https://
 
 ## Compatibility
 
-- min. Contao version: >= 3.5.0
-- max. Contao version: 4.*
+- min. Contao version: ^4.9
+- PHP min. 7.4 || 8.0
 
 ## Dependency
 
