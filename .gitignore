@@ -1,10 +1,11 @@
-/*
-!/.gitignore
-!/.gitattributes
-!/.editorconfig
-!/contao-module/
-!/dev/
-!/src/
-!/CHANGELOG.md
-!/README.md
-!/composer.json
+# Companion
+/.env.companion
+
+# Composer
+/composer.lock
+/vendor
+
+# PHPCQ
+/.phpcq
+/.phpcq.yaml
+/.phpcs-cache
