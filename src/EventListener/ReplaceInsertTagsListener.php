@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Hofff\Contao\IconFont\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 
-/**
- * @author Nicky Hoff <nick@hofff.com>
- *
- * @Hook("replaceInsertTags")
- */
+use function explode;
+use function sprintf;
+
+#[AsHook('replaceInsertTags')]
 final class ReplaceInsertTagsListener
 {
     private const ICONS = [
@@ -98,40 +99,57 @@ final class ReplaceInsertTagsListener
         'icon-fab-flip-both'       => '<i class="fab fa-%s fa-flip-both" aria-hidden="true"></i>',
 
         // Icons mit quadratischem Hintergrund
-        'icon-fas-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true"></i><i class="fas fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-far-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true"></i><i class="far fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-fal-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true"></i><i class="fal fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-fab-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true"></i><i class="fab fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fas-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fas fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-far-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="far fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fal-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fal fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fab-square'          => '<span class="fa-stack"><i class="fas fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fab fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
 
         // Icons mit quadratischem Hintergrund - nur Umrandung
-        'icon-fas-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true"></i><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-far-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true"></i><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-fal-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true"></i><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-fab-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true"></i><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fas-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-far-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fal-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fab-square-border'   => '<span class="fa-stack"><i class="far fa-square fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
 
         // Icons mit rundem Hintergrund
-        'icon-fas-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fas fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-far-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i><i class="far fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-fal-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fal fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
-        'icon-fab-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fab fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fas-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fas fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-far-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="far fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fal-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fal fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
+        'icon-fab-circle'          => '<span class="fa-stack"><i class="fas fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fab fa-%s fa-stack-1x fa-inverse" aria-hidden="true"></i></span>',
 
         // Icons mit rundem Hintergrund - nur Umrandung
-        'icon-fas-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-far-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true"></i><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-fal-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
-        'icon-fab-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true"></i><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fas-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-far-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fal-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
+        'icon-fab-circle-border'   => '<span class="fa-stack"><i class="far fa-circle fa-stack-2x" aria-hidden="true">'
+            . '</i><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i></span>',
 
         // Icons mit Verbotsschild (Farbe für .fa-ban muss per CSS gesetzt werden)
-        'icon-fas-ban'             => '<span class="fa-stack"><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i><i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
-        'icon-far-ban'             => '<span class="fa-stack"><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i><i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
-        'icon-fal-ban'             => '<span class="fa-stack"><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i><i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
-        'icon-fab-ban'             => '<span class="fa-stack"><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i><i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
+        'icon-fas-ban'             => '<span class="fa-stack"><i class="fas fa-%s fa-stack-1x" aria-hidden="true"></i>'
+            . '<i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
+        'icon-far-ban'             => '<span class="fa-stack"><i class="far fa-%s fa-stack-1x" aria-hidden="true"></i>'
+            . '<i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
+        'icon-fal-ban'             => '<span class="fa-stack"><i class="fal fa-%s fa-stack-1x" aria-hidden="true"></i>'
+            . '<i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
+        'icon-fab-ban'             => '<span class="fa-stack"><i class="fab fa-%s fa-stack-1x" aria-hidden="true"></i>'
+            . '<i class="fas fa-ban fa-stack-2x" aria-hidden="true"></i></span>',
     ];
 
-    /**
-     * @return bool|string
-     */
-    public function __invoke(string $tag)
+    public function __invoke(string $tag): bool|string
     {
         $split = explode('::', $tag);
 

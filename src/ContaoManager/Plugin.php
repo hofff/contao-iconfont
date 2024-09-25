@@ -12,6 +12,7 @@ use Hofff\Contao\IconFont\HofffContaoIconFontBundle;
 
 final class Plugin implements BundlePluginInterface
 {
+    /** {@inheritDoc} */
     public function getBundles(ParserInterface $parser): array
     {
         return [
